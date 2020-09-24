@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:personal_expenses_app/transaction.dart';
 
 void main() {
@@ -57,7 +56,7 @@ class MyHomePage extends StatelessWidget {
                             border: Border.all(color: Colors.purple, width: 2)),
                         padding: EdgeInsets.all(10),
                         child: Text(
-                          "\$ ${tx.amount}",
+                          "\$ ${tx.amount}", // how to use "$"!!
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -73,7 +72,8 @@ class MyHomePage extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMd().format(tx.date),
+                            // DateFormat("yyyy.MM.dd").format(tx.date),
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],
