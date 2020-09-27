@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses_app/models/transaction.dart';
+import 'models/transaction.dart';
 import 'package:personal_expenses_app/widgets/new_transaction.dart';
 import 'package:personal_expenses_app/widgets/transaction_list.dart';
 
@@ -12,7 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal Expenses App',
-      theme: ThemeData(primarySwatch: Colors.purple, accentColor: Colors.amber),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+        fontFamily: "BalooTammudu2",
+        // appBarTheme:
+        //     AppBarTheme(textTheme: ThemeData.light().textTheme.copyWith())
+      ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -65,7 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Personal Expenses App"),
+        title: Text(
+          "Personal Expenses App",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontFamily: "CourierPrime"),
+        ),
         actions: [
           IconButton(
               icon: Icon(Icons.add),
