@@ -14,12 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses App',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.amber,
-        fontFamily: "BalooTammudu2",
-        // appBarTheme:
-        //     AppBarTheme(textTheme: ThemeData.light().textTheme.copyWith())
-      ),
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          fontFamily: "BalooTammudu2",
+          textTheme: ThemeData.light()
+              .textTheme
+              .copyWith(button: TextStyle(color: Colors.white))
+          // appBarTheme:
+          //     AppBarTheme(textTheme: ThemeData.light().textTheme.copyWith())
+          ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
