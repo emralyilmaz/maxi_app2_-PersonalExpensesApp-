@@ -53,12 +53,13 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txamount) {
+  void _addNewTransaction(
+      String txTitle, double txamount, DateTime chosenDate) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
         title: txTitle,
         amount: txamount,
-        date: DateTime.now());
+        date: chosenDate);
 
     setState(() {
       _userTrasactions.add(newTx);
@@ -87,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
-              fontFamily: "CourierPrime"),
+              fontFamily: "BalooTammudu2"),
         ),
         actions: [
           IconButton(
