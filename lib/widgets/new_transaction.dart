@@ -26,7 +26,12 @@ class _NewTransactionState extends State<NewTransaction> {
       return;
     }
 
-    widget.addTx(enteredTitle, enteredAmount, _selectedDate);
+    widget.addTx(
+      enteredTitle,
+      enteredAmount,
+      _selectedDate,
+    );
+
     Navigator.of(context).pop();
   }
 
@@ -36,16 +41,15 @@ class _NewTransactionState extends State<NewTransaction> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2019),
       lastDate: DateTime.now(),
-    ).then((pickedData) {
-      if (pickedData == null) {
+    ).then((pickedDate) {
+      if (pickedDate == null) {
         return;
       }
-
       setState(() {
-        _selectedDate = pickedData;
+        _selectedDate = pickedDate;
       });
     });
-    print("...");
+    print('...');
   }
 
   @override
@@ -62,47 +66,52 @@ class _NewTransactionState extends State<NewTransaction> {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
+            children: <Widget>[
               TextField(
-                decoration: InputDecoration(labelText: "Title"),
+                decoration: InputDecoration(labelText: 'Title'),
                 controller: _titleController,
                 onSubmitted: (_) => _submitData(),
-                // onChanged: (val) => titleInput = val,
+                // onChanged: (val) {
+                //   titleInput = val;
+                // },
               ),
               TextField(
-                decoration: InputDecoration(labelText: "Amount"),
+                decoration: InputDecoration(labelText: 'Amount'),
                 controller: _amountController,
+                // keyboardType: TextInputType.number,
                 onSubmitted: (_) => _submitData(),
-                // onChanged: (val) {
-                //   amountInput = val;
-                // },
+                // onChanged: (val) => amountInput = val,
               ),
               Container(
                 height: 70,
                 child: Row(
-                  children: [
+                  children: <Widget>[
                     Expanded(
-                      child: Text(_selectedDate == null
-                          ? "No Date Chosen!"
-                          : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}"),
+                      child: Text(
+                        _selectedDate == null
+                            ? 'No Date Chosen!'
+                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}',
+                      ),
                     ),
                     FlatButton(
-                        onPressed: _presentDatePicker,
-                        child: Text(
-                          "Chose Date",
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold),
-                        ))
+                      textColor: Theme.of(context).primaryColor,
+                      child: Text(
+                        'Choose Date',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: _presentDatePicker,
+                    ),
                   ],
                 ),
               ),
               RaisedButton(
-                child: Text("Add Transaction"),
+                child: Text('Add Transaction'),
                 color: Theme.of(context).primaryColor,
                 textColor: Theme.of(context).textTheme.button.color,
                 onPressed: _submitData,
-              )
+              ),
             ],
           ),
         ),
