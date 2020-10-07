@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:personal_expenses_app/widgets/chart.dart';
 import 'models/transaction.dart';
 import 'package:personal_expenses_app/widgets/new_transaction.dart';
@@ -23,14 +23,14 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
         // errorColor: Colors.red,
         fontFamily: 'Quicksand',
-        textTheme: ThemeData.light().textTheme.copyWith(
-              title: TextStyle(
-                fontFamily: 'OpenSans',
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-              button: TextStyle(color: Colors.white),
-            ),
+        // textTheme: ThemeData.light().textTheme.copyWith(
+        //       title: TextStyle(
+        //         fontFamily: 'OpenSans',
+        //         fontWeight: FontWeight.bold,
+        //         fontSize: 18,
+        //       ),
+        //       button: TextStyle(color: Colors.white),
+        //     ),
       ),
       home: MyHomePage(),
     );
